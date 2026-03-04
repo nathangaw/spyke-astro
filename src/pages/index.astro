@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Header } from "../components/Header";
+import { HeroSection } from "../components/HeroSection";
+import { ClientsSection } from "../components/ClientsSection";
+import { WorkSection } from "../components/WorkSection";
+import { ServicesSection } from "../components/ServicesSection";
+import { TestimonialsSection } from "../components/TestimonialsSection";
+import { AboutSection } from "../components/AboutSection";
+import { ContactSection } from "../components/ContactSection";
+import { Footer } from "../components/Footer";
+---
+
+<Layout>
+  <main class="min-h-screen">
+    <Header client:load />
+    <HeroSection client:load />
+    <ClientsSection client:load />
+    <WorkSection client:load />
+    <ServicesSection client:load />
+    <TestimonialsSection client:load />
+    <AboutSection client:load />
+    <ContactSection client:load />
+    <Footer client:load />
+  </main>
+</Layout>

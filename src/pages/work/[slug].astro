@@ -1,0 +1,90 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Header } from "../../components/Header";
+import { Footer } from "../../components/Footer";
+import { CaseStudyHero } from "../../components/case-study/Hero";
+import { CaseStudyOverview } from "../../components/case-study/Overview";
+import { CaseStudyChallenge } from "../../components/case-study/Challenge";
+import { CaseStudySolution } from "../../components/case-study/Solution";
+import { CaseStudyResults } from "../../components/case-study/Results";
+import { CaseStudyTestimonial } from "../../components/case-study/Testimonial";
+import { CaseStudyNavigation } from "../../components/case-study/Navigation";
+import { caseStudies, type CaseStudySlug } from "../../data/caseStudies";
+
+export function getStaticPaths() {
+  return Object.keys(caseStudies).map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const study = caseStudies[slug as CaseStudySlug];
+
+if (!study) {
+  return Astro.redirect("/404");
+}
+
+const slugs = Object.keys(caseStudies) as CaseStudySlug[];
+const currentIndex = slugs.indexOf(slug as CaseStudySlug);
+const prevSlug = currentIndex > 0 ? slugs[currentIndex - 1] : null;
+const nextSlug = currentIndex < slugs.length - 1 ? slugs[currentIndex + 1] : null;
+const prevTitle = prevSlug ? caseStudies[prevSlug].title : null;
+const nextTitle = nextSlug ? caseStudies[nextSlug].title : null;
+---
+
+<Layout
+  title={`${study.title} | Case Study | Spyke Digital`}
+  description={study.overview.description}
+>
+  <main class="min-h-screen bg-background">
+    <Header client:load />
+    <CaseStudyHero
+      client:load
+      title={study.title}
+      subtitle={study.subtitle}
+      category={study.category}
+      year={study.year}
+      duration={study.duration}
+      team={study.team}
+    />
+    <CaseStudyOverview
+      client:load
+      client={study.overview.client}
+      industry={study.overview.industry}
+      services={[...study.overview.services]}
+      description={study.overview.description}
+      technologies={[...study.technologies]}
+    />
+    <CaseStudyChallenge
+      client:load
+      title={study.challenge.title}
+      description={study.challenge.description}
+      points={[...study.challenge.points]}
+    />
+    <CaseStudySolution
+      client:load
+      title={study.solution.title}
+      description={study.solution.description}
+      features={[...study.solution.features]}
+    />
+    <CaseStudyResults
+      client:load
+      title={study.results.title}
+      description={study.results.description}
+      stats={[...study.results.stats]}
+    />
+    <CaseStudyTestimonial
+      client:load
+      quote={study.testimonial.quote}
+      author={study.testimonial.author}
+      role={study.testimonial.role}
+      organization={study.testimonial.organization}
+    />
+    <CaseStudyNavigation
+      client:load
+      prevSlug={prevSlug}
+      nextSlug={nextSlug}
+      prevTitle={prevTitle}
+      nextTitle={nextTitle}
+    />
+    <Footer client:load />
+  </main>
+</Layout>
