@@ -3,38 +3,38 @@ const projects = [
   {
     slug: "textbook-chatbot",
     title: "Textbook chatbot",
-    category: "Web Platform",
+    category: "AI Chatbot",
     description:
-      "AI-powered student management system with personalized learning paths",
-    tags: ["AI / ML", "React", "Education"],
+      "AI-powered chatbot that answers student questions using textbook content.",
+    tags: ["AI / ML", "React", "Education", "RAG"],
     colorClass: "from-primary/20 to-primary/5",
   },
   {
     slug: "lesson-planner",
     title: "Lesson planning tool",
-    category: "AI Chatbot",
+    category: "Teacher tool",
     description:
-      "Intelligent tutoring assistant for K-12 students with real-time support",
-    tags: ["ChatGPT", "Next.js", "K-12"],
+      "Lesson planning tool with AI-generated content including worksheets, quizzes, and multimedia resources.",
+    tags: ["AI", "OpenAI", "Next.js", "Google"],
     colorClass: "from-cyan-500/20 to-cyan-500/5",
   },
   {
     slug: "writing-reviewer",
     title: "Writing reviewer",
-    category: "Mobile Web App",
+    category: "Student tool",
     description:
-      "Virtual campus tour experience with AR integration and live guides",
-    tags: ["AR", "WebGL", "Higher Ed"],
+      "Real-time writing feedback tool that provides suggestions for grammar, style, and content improvements.",
+    tags: ["AI", "OpenAI", "Next.js", "Education"],
     colorClass: "from-emerald-500/20 to-emerald-500/5",
   },
   {
     slug: "placement-test",
     title: "Conversational placement test",
-    category: "UI/UX Design",
+    category: "Testing",
     description:
-      "Complete learning management system overhaul for improved engagement",
-    tags: ["Design", "UX Research", "LMS"],
-    colorClass: "from-amber-500/20 to-amber-500/5",
+      "Conversational placement test for assessing language proficiency.",
+    tags: ["Conversational AI", "TTS", "Transcription"],
+    colorClass: "from-emerald-500/20 to-emerald-500/5",
   },
 ];
 ---
@@ -57,7 +57,7 @@ const projects = [
           Projects that transform<br />educational experiences
         </p>
       </div>
-      <a
+      <!--<a
         href="#"
         class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1 group"
       >
@@ -76,7 +76,7 @@ const projects = [
         >
           <path d="M7 7h10v10"></path><path d="M7 17 17 7"></path>
         </svg>
-      </a>
+      </a>-->
     </div>
 
     <!-- Projects grid -->
@@ -89,7 +89,7 @@ const projects = [
           >
             <!-- Gradient background -->
             <div
-              class={`absolute inset-0 bg-gradient-to-br ${project.colorClass} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+              class={`absolute inset-0 bg-linear-to-br ${project.colorClass} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
             />
 
             <!-- Content -->

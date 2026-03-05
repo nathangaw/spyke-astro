@@ -1,27 +1,28 @@
 export const caseStudies = {
-  "cambridge-learning-portal": {
-    title: "Cambridge Learning Portal",
-    subtitle: "Reimagining the University Student Experience",
-    category: "University Platform",
+  "textbook-chatbot": {
+    title: "Textbook chatbot",
+    subtitle:
+      "An AI-powered study companion for students, trained on the content of their textbooks.",
+    category: "AI chatbot",
     year: "2025",
     duration: "8 months",
     team: "6 specialists",
     overview: {
-      client: "Cambridge University Digital Learning Department",
+      client: "Multiple HE Publishers",
       industry: "Higher Education",
-      services: ["Web Development", "AI Integration", "UX Design", "LMS Development"],
+      services: ["Web Development", "AI Integration", "UX Design", "RAG"],
       description:
-        "A comprehensive student portal serving 25,000+ students with AI-powered course recommendations, personalized learning paths, and real-time progress tracking.",
+        "A chatbot platform that allows publishers to upload textbook content and create an AI assistant that helps students understand complex concepts, answer questions, and provide personalized study support.",
     },
     challenge: {
       title: "The Challenge",
       description:
-        "Cambridge University's existing student portal was built over a decade ago. Students struggled with an outdated interface, siloed information across multiple systems, and no personalization.",
+        "Generic AI chatbots were not providing accurate or relevant information when students asked questions about their course material. Publishers needed a solution that could leverage the rich content of their textbooks to create a truly helpful study companion.",
       points: [
-        "Legacy system with poor mobile experience",
-        "Fragmented data across 12 different platforms",
-        "No personalization or AI capabilities",
-        "High support ticket volume for basic tasks",
+        "Ineffective generic chatbots leading to student frustration",
+        "Concerns about accuracy and reliability of AI-generated responses",
+        "Importance of protecting intellectual property while using textbook content",
+        "Need for mutiple ways to integrate the chatbot into existing digital platforms (web, mobile, ebooks, LMS)",
       ],
     },
     solution: {
@@ -30,22 +31,22 @@ export const caseStudies = {
         "We built a unified, modern platform that brings together all student services in one place, powered by AI to deliver personalized experiences and automate routine tasks.",
       features: [
         {
-          title: "AI Course Recommendations",
+          title: "Rigorous ingestion and RAG pipeline",
           description:
             "Machine learning algorithms analyze academic history, interests, and career goals to suggest relevant courses.",
         },
         {
-          title: "Unified Dashboard",
+          title: "Book-specific prompting and fine-tuning",
           description:
             "Single sign-on access to grades, schedules, library resources, and administrative services.",
         },
         {
-          title: "Smart Notifications",
+          title: "Flexible integration options",
           description:
-            "Intelligent alerts for deadlines, course updates, and opportunities tailored to each student.",
+            "The chatbot can be integrated into various digital platforms, including web, mobile, ebooks, and LMS, ensuring seamless access for students.",
         },
         {
-          title: "Progress Analytics",
+          title: "Anonymized data insights and dashboards",
           description:
             "Visual dashboards showing academic progress, study patterns, and personalized recommendations.",
         },
@@ -54,10 +55,10 @@ export const caseStudies = {
     results: {
       title: "The Results",
       stats: [
-        { value: "65%", label: "Reduction in support tickets" },
-        { value: "4.8/5", label: "Student satisfaction score" },
-        { value: "40%", label: "Increase in course discovery" },
-        { value: "2.5x", label: "Mobile engagement increase" },
+        { value: "65%", label: "Increase in textbook sales" },
+        { value: "4.8/5", label: "Improvement in teacher satisfaction" },
+        { value: "40%", label: "Improvement in student scores" },
+        { value: "2.5x", label: "Reduction in student queries" },
       ],
       description:
         "Within six months of launch, the portal transformed how students interact with the university.",
@@ -69,7 +70,7 @@ export const caseStudies = {
       role: "Director of Digital Learning",
       organization: "Cambridge University",
     },
-    technologies: ["Next.js", "TypeScript", "Python", "TensorFlow", "PostgreSQL", "Redis", "AWS"],
+    technologies: ["AI", "ML", "React", "AWS"],
   },
   "edupath-analytics": {
     title: "EduPath Analytics",
@@ -81,7 +82,12 @@ export const caseStudies = {
     overview: {
       client: "EduPath Technologies Inc.",
       industry: "EdTech / Analytics",
-      services: ["Web Application", "Data Visualization", "Dashboard Design", "API Development"],
+      services: [
+        "Web Application",
+        "Data Visualization",
+        "Dashboard Design",
+        "API Development",
+      ],
       description:
         "A powerful analytics dashboard helping educators understand student engagement patterns, identify at-risk students, and optimize their teaching strategies.",
     },
@@ -141,7 +147,14 @@ export const caseStudies = {
       role: "CEO & Co-founder",
       organization: "EduPath Technologies",
     },
-    technologies: ["React", "D3.js", "Node.js", "GraphQL", "PostgreSQL", "Elasticsearch"],
+    technologies: [
+      "React",
+      "D3.js",
+      "Node.js",
+      "GraphQL",
+      "PostgreSQL",
+      "Elasticsearch",
+    ],
   },
   "greenwood-academy": {
     title: "Greenwood Academy",
@@ -153,7 +166,12 @@ export const caseStudies = {
     overview: {
       client: "Greenwood Academy",
       industry: "K-12 Education",
-      services: ["Website Design", "CMS Development", "Virtual Tours", "Parent Portal"],
+      services: [
+        "Website Design",
+        "CMS Development",
+        "Virtual Tours",
+        "Parent Portal",
+      ],
       description:
         "A complete digital transformation for a prestigious K-12 school, including a stunning public website, virtual campus tours, and integrated parent communication tools.",
     },
@@ -213,8 +231,14 @@ export const caseStudies = {
       role: "Head of School",
       organization: "Greenwood Academy",
     },
-    technologies: ["Next.js", "Sanity CMS", "Three.js", "Tailwind CSS", "Vercel"],
+    technologies: [
+      "Next.js",
+      "Sanity CMS",
+      "Three.js",
+      "Tailwind CSS",
+      "Vercel",
+    ],
   },
-} as const;
+} as const
 
-export type CaseStudySlug = keyof typeof caseStudies;
+export type CaseStudySlug = keyof typeof caseStudies

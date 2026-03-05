@@ -26,6 +26,7 @@ const { title, subtitle, category, year, duration, team } = Astro.props;
 
   <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
     <!-- Back link -->
+     <div>
     <a
       href="/#work"
       class="animate-fade-in inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-12 group"
@@ -46,6 +47,7 @@ const { title, subtitle, category, year, duration, team } = Astro.props;
       </svg>
       Back to all work
     </a>
+    </div>
 
     <!-- Category badge -->
     <div
@@ -81,14 +83,14 @@ const { title, subtitle, category, year, duration, team } = Astro.props;
         <p class="text-sm text-muted-foreground mb-1">Year</p>
         <p class="text-foreground font-medium">{year}</p>
       </div>
-      <div>
+      <!--<div>
         <p class="text-sm text-muted-foreground mb-1">Duration</p>
         <p class="text-foreground font-medium">{duration}</p>
       </div>
       <div>
         <p class="text-sm text-muted-foreground mb-1">Team</p>
         <p class="text-foreground font-medium">{team}</p>
-      </div>
+      </div>-->
     </div>
   </div>
 </section>

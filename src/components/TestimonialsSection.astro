@@ -2,24 +2,17 @@
 const testimonials = [
   {
     quote:
-      "Nexus Labs transformed our outdated portal into a modern, AI-powered platform that our students and faculty love. Their understanding of education technology is unmatched.",
+      "Spyke have transformed our digital learning platform with their innovative AI solutions. The new features they have implemented have significantly enhanced the learning experience for both students and teachers.",
     author: "Dr. Sarah Mitchell",
     role: "Director of Digital Learning",
-    organization: "Westbridge University",
+    organization: "Garnet Education",
   },
   {
     quote:
-      "The AI-powered features they built into our learning platform have genuinely improved student engagement. We've seen a 40% increase in course completion rates.",
+      "Spyke have become part of our team, providing advice and guidance on everything web related. I would certainly recommend them to any business looking for a quality, honest and flexible professional service.",
     author: "James Chen",
     role: "CEO",
-    organization: "LearnPath Technologies",
-  },
-  {
-    quote:
-      "Working with Nexus Labs felt like having an extension of our team. They truly cared about our mission and delivered beyond our expectations.",
-    author: "Maria Rodriguez",
-    role: "Head of Communications",
-    organization: "Oakwood Academy",
+    organization: "Core Learning",
   },
 ];
 ---
@@ -54,7 +47,7 @@ const testimonials = [
     </div>
 
     <!-- Testimonial slides -->
-    <div class="relative min-h-[280px] md:min-h-[220px]">
+    <div class="relative min-h-70 md:min-h-55">
       {
         testimonials.map((t, index) => (
           <div
@@ -71,11 +64,11 @@ const testimonials = [
               </p>
               <footer>
                 <cite class="not-italic">
-                  <span class="block text-foreground font-semibold">
+                  <!--<span class="block text-foreground font-semibold">
                     {t.author}
-                  </span>
+                  </span>-->
                   <span class="block text-sm text-muted-foreground mt-1">
-                    {t.role}, {t.organization}
+                    {t.organization}
                   </span>
                 </cite>
               </footer>
