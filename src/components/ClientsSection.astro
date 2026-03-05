@@ -1,0 +1,47 @@
+---
+const clients = [
+  { name: "Trinity", logo: "/images/trinity-white.png" },
+  { name: "Garnet", logo: "/images/garnet-logo-bold.png" },
+  { name: "Cambridge Press", logo: "/placeholder-logo.svg" },
+  { name: "Collins", logo: "/images/collins.svg" },
+  { name: "Khan Academy", logo: "/placeholder-logo.svg" },
+  { name: "T&F", logo: "/images/tandflogo.svg" },
+  { name: "EdX Platform", logo: "/placeholder-logo.svg" },
+  { name: "UTC", logo: "/images/utc.svg" },
+];
+---
+
+<section class="py-16 bg-secondary/30 border-y border-border">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <p
+      data-reveal
+      class="text-center text-sm text-muted-foreground mb-10"
+    >
+      Trusted by leading organisations worldwide
+    </p>
+
+    <div class="grid grid-cols-4 md:grid-cols-8 gap-6 items-center">
+      {
+        clients.map((client, index) => (
+          <div
+            data-reveal
+            style={`transition-delay: ${index * 50}ms`}
+            class="flex items-center justify-center"
+          >
+            <div class="group cursor-pointer">
+              <div class="w-24 h-24 rounded-lg border border-border bg-card/50 flex items-center justify-center transition-all duration-300 group-hover:border-primary group-hover:bg-primary/10 p-2">
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  width={70}
+                  height={70}
+                  class="opacity-60 group-hover:opacity-100 transition-opacity object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

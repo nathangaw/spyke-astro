@@ -1,0 +1,143 @@
+---
+const projects = [
+  {
+    slug: "textbook-chatbot",
+    title: "Textbook chatbot",
+    category: "Web Platform",
+    description:
+      "AI-powered student management system with personalized learning paths",
+    tags: ["AI / ML", "React", "Education"],
+    colorClass: "from-primary/20 to-primary/5",
+  },
+  {
+    slug: "lesson-planner",
+    title: "Lesson planning tool",
+    category: "AI Chatbot",
+    description:
+      "Intelligent tutoring assistant for K-12 students with real-time support",
+    tags: ["ChatGPT", "Next.js", "K-12"],
+    colorClass: "from-cyan-500/20 to-cyan-500/5",
+  },
+  {
+    slug: "writing-reviewer",
+    title: "Writing reviewer",
+    category: "Mobile Web App",
+    description:
+      "Virtual campus tour experience with AR integration and live guides",
+    tags: ["AR", "WebGL", "Higher Ed"],
+    colorClass: "from-emerald-500/20 to-emerald-500/5",
+  },
+  {
+    slug: "placement-test",
+    title: "Conversational placement test",
+    category: "UI/UX Design",
+    description:
+      "Complete learning management system overhaul for improved engagement",
+    tags: ["Design", "UX Research", "LMS"],
+    colorClass: "from-amber-500/20 to-amber-500/5",
+  },
+];
+---
+
+<section id="work" class="py-32 relative overflow-hidden">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <!-- Section header -->
+    <div
+      class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16"
+    >
+      <div>
+        <h2
+          class="text-sm font-medium text-primary uppercase tracking-wider mb-4"
+        >
+          Featured Work
+        </h2>
+        <p
+          class="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance"
+        >
+          Projects that transform<br />educational experiences
+        </p>
+      </div>
+      <a
+        href="#"
+        class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1 group"
+      >
+        View all projects
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+        >
+          <path d="M7 7h10v10"></path><path d="M7 17 17 7"></path>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Projects grid -->
+    <div class="grid md:grid-cols-2 gap-6">
+      {
+        projects.map((project) => (
+          <a
+            href={`/work/${project.slug}`}
+            class="group relative rounded-2xl border border-border bg-card overflow-hidden transition-all duration-500 hover:border-primary/50"
+          >
+            <!-- Gradient background -->
+            <div
+              class={`absolute inset-0 bg-gradient-to-br ${project.colorClass} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+            />
+
+            <!-- Content -->
+            <div class="relative p-8 lg:p-10">
+              <div class="flex items-start justify-between mb-8">
+                <span class="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                  {project.category}
+                </span>
+                <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17 17 7" />
+                  </svg>
+                </div>
+              </div>
+
+              <h3 class="text-2xl lg:text-3xl font-bold text-foreground mb-3 transition-transform duration-300 group-hover:translate-x-1">
+                {project.title}
+              </h3>
+
+              <p class="text-muted-foreground mb-6 leading-relaxed">
+                {project.description}
+              </p>
+
+              <div class="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span class="text-xs font-medium px-3 py-1 rounded-full bg-secondary text-secondary-foreground">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <!-- Hover line animation -->
+              <div class="absolute bottom-0 left-0 h-1 bg-primary w-0 group-hover:w-full transition-all duration-500" />
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

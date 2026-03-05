@@ -1,0 +1,82 @@
+---
+import Icon from "./Icon.astro";
+
+const services = [
+  {
+    icon: "code",
+    title: "Web Development",
+    description:
+      "Custom websites and web applications built with Next.js, React, and modern frameworks optimized for performance.",
+  },
+  {
+    icon: "brain",
+    title: "AI Integration",
+    description:
+      "Intelligent features that personalize learning—from smart recommendations to adaptive assessments and chatbots.",
+  },
+  {
+    icon: "palette",
+    title: "UX/UI Design",
+    description:
+      "Research-driven design that puts learners first, creating intuitive experiences that drive engagement.",
+  },
+  {
+    icon: "rocket",
+    title: "EdTech Consulting",
+    description:
+      "Strategic guidance on digital transformation, technology selection, and scaling your education platform.",
+  },
+];
+---
+
+<section id="services" class="py-24 md:py-32 bg-secondary/30">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <p
+        data-reveal
+        class="text-sm text-primary font-medium uppercase tracking-wider mb-4"
+      >
+        Our Services
+      </p>
+      <h2
+        data-reveal
+        style="transition-delay: 100ms"
+        class="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6"
+      >
+        How we can <span class="text-primary">help</span>
+      </h2>
+      <p
+        data-reveal
+        style="transition-delay: 200ms"
+        class="text-muted-foreground leading-relaxed"
+      >
+        End-to-end digital services tailored for the education sector, from
+        strategy through development and ongoing support.
+      </p>
+    </div>
+
+    <!-- Services grid -->
+    <div class="grid md:grid-cols-2 gap-6">
+      {
+        services.map((service, index) => (
+          <div
+            data-reveal
+            style={`transition-delay: ${300 + index * 100}ms`}
+            class="group p-8 rounded-xl border border-border bg-card/50 hover:bg-card hover:border-primary/50 transition-all duration-500"
+          >
+            <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+              <Icon name={service.icon} size={24} class="text-primary" />
+            </div>
+            <h3 class="text-xl font-semibold text-foreground mb-3">
+              {service.title}
+            </h3>
+            <p class="text-muted-foreground leading-relaxed">
+              {service.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,91 @@
+---
+interface Props {
+  prevSlug: string | null;
+  nextSlug: string | null;
+  prevTitle: string | null;
+  nextTitle: string | null;
+}
+
+const { prevSlug, nextSlug, prevTitle, nextTitle } = Astro.props;
+---
+
+<section class="py-16 md:py-20 bg-background border-t border-border">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div
+      class="flex flex-col sm:flex-row justify-between items-stretch gap-4"
+    >
+      {
+        prevSlug && prevTitle ? (
+          <a
+            href={`/work/${prevSlug}`}
+            class="group flex-1 p-6 rounded-xl border border-border bg-card/50 hover:bg-card hover:border-primary/50 transition-all"
+          >
+            <div class="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="transition-transform group-hover:-translate-x-1"
+              >
+                <path d="m19 12H5" />
+                <path d="m12 19-7-7 7-7" />
+              </svg>
+              Previous Project
+            </div>
+            <p class="text-foreground font-semibold group-hover:text-primary transition-colors">
+              {prevTitle}
+            </p>
+          </a>
+        ) : (
+          <div class="flex-1" />
+        )
+      }
+
+      <a
+        href="/#work"
+        class="flex items-center justify-center px-8 py-6 rounded-xl border border-border bg-card/50 hover:bg-card hover:border-primary/50 transition-all text-muted-foreground hover:text-foreground"
+      >
+        View All Work
+      </a>
+
+      {
+        nextSlug && nextTitle ? (
+          <a
+            href={`/work/${nextSlug}`}
+            class="group flex-1 p-6 rounded-xl border border-border bg-card/50 hover:bg-card hover:border-primary/50 transition-all text-right"
+          >
+            <div class="flex items-center justify-end gap-2 text-sm text-muted-foreground mb-2">
+              Next Project
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="transition-transform group-hover:translate-x-1"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </div>
+            <p class="text-foreground font-semibold group-hover:text-primary transition-colors">
+              {nextTitle}
+            </p>
+          </a>
+        ) : (
+          <div class="flex-1" />
+        )
+      }
+    </div>
+  </div>
+</section>

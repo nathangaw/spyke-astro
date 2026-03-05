@@ -1,14 +1,14 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { Header } from "../../components/Header";
-import { Footer } from "../../components/Footer";
-import { CaseStudyHero } from "../../components/case-study/Hero";
-import { CaseStudyOverview } from "../../components/case-study/Overview";
-import { CaseStudyChallenge } from "../../components/case-study/Challenge";
-import { CaseStudySolution } from "../../components/case-study/Solution";
-import { CaseStudyResults } from "../../components/case-study/Results";
-import { CaseStudyTestimonial } from "../../components/case-study/Testimonial";
-import { CaseStudyNavigation } from "../../components/case-study/Navigation";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import CaseStudyHero from "../../components/case-study/Hero.astro";
+import CaseStudyOverview from "../../components/case-study/Overview.astro";
+import CaseStudyChallenge from "../../components/case-study/Challenge.astro";
+import CaseStudySolution from "../../components/case-study/Solution.astro";
+import CaseStudyResults from "../../components/case-study/Results.astro";
+import CaseStudyTestimonial from "../../components/case-study/Testimonial.astro";
+import CaseStudyNavigation from "../../components/case-study/Navigation.astro";
 import { caseStudies, type CaseStudySlug } from "../../data/caseStudies";
 
 export function getStaticPaths() {
@@ -35,9 +35,8 @@ const nextTitle = nextSlug ? caseStudies[nextSlug].title : null;
   description={study.overview.description}
 >
   <main class="min-h-screen bg-background">
-    <Header client:load />
+    <Header />
     <CaseStudyHero
-      client:load
       title={study.title}
       subtitle={study.subtitle}
       category={study.category}
@@ -46,7 +45,6 @@ const nextTitle = nextSlug ? caseStudies[nextSlug].title : null;
       team={study.team}
     />
     <CaseStudyOverview
-      client:load
       client={study.overview.client}
       industry={study.overview.industry}
       services={[...study.overview.services]}
@@ -54,37 +52,32 @@ const nextTitle = nextSlug ? caseStudies[nextSlug].title : null;
       technologies={[...study.technologies]}
     />
     <CaseStudyChallenge
-      client:load
       title={study.challenge.title}
       description={study.challenge.description}
       points={[...study.challenge.points]}
     />
     <CaseStudySolution
-      client:load
       title={study.solution.title}
       description={study.solution.description}
       features={[...study.solution.features]}
     />
     <CaseStudyResults
-      client:load
       title={study.results.title}
       description={study.results.description}
       stats={[...study.results.stats]}
     />
     <CaseStudyTestimonial
-      client:load
       quote={study.testimonial.quote}
       author={study.testimonial.author}
       role={study.testimonial.role}
       organization={study.testimonial.organization}
     />
     <CaseStudyNavigation
-      client:load
       prevSlug={prevSlug}
       nextSlug={nextSlug}
       prevTitle={prevTitle}
       nextTitle={nextTitle}
     />
-    <Footer client:load />
+    <Footer />
   </main>
 </Layout>

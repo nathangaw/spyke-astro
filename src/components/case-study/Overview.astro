@@ -1,0 +1,66 @@
+---
+interface Props {
+  client: string;
+  industry: string;
+  services: string[];
+  description: string;
+  technologies: string[];
+}
+
+const { client, industry, services, description, technologies } = Astro.props;
+---
+
+<section class="py-16 md:py-24 bg-secondary/30 border-y border-border">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+      <div data-reveal>
+        <p class="text-sm text-muted-foreground mb-2">Client</p>
+        <p class="text-foreground font-medium">{client}</p>
+      </div>
+
+      <div data-reveal style="transition-delay: 100ms">
+        <p class="text-sm text-muted-foreground mb-2">Industry</p>
+        <p class="text-foreground font-medium">{industry}</p>
+      </div>
+
+      <div data-reveal style="transition-delay: 200ms">
+        <p class="text-sm text-muted-foreground mb-2">Services</p>
+        <div class="flex flex-wrap gap-2">
+          {
+            services.map((service) => (
+              <span class="text-xs px-2 py-1 rounded bg-card border border-border text-foreground">
+                {service}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      <div data-reveal style="transition-delay: 300ms">
+        <p class="text-sm text-muted-foreground mb-2">Technologies</p>
+        <div class="flex flex-wrap gap-2">
+          {
+            technologies.slice(0, 4).map((tech) => (
+              <span class="text-xs px-2 py-1 rounded bg-primary/10 border border-primary/20 text-primary">
+                {tech}
+              </span>
+            ))
+          }
+          {
+            technologies.length > 4 && (
+              <span class="text-xs px-2 py-1 text-muted-foreground">
+                +{technologies.length - 4} more
+              </span>
+            )
+          }
+        </div>
+      </div>
+    </div>
+
+    <div data-reveal style="transition-delay: 400ms" class="max-w-3xl">
+      <p class="text-lg md:text-xl text-foreground leading-relaxed">
+        {description}
+      </p>
+    </div>
+  </div>
+</section>

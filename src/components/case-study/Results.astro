@@ -1,0 +1,59 @@
+---
+interface Stat {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  stats: Stat[];
+}
+
+const { title, description, stats } = Astro.props;
+---
+
+<section class="py-20 md:py-28 bg-background">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <p
+        data-reveal
+        class="text-sm text-primary font-medium uppercase tracking-wider mb-4"
+      >
+        The Results
+      </p>
+      <h2
+        data-reveal
+        style="transition-delay: 100ms"
+        class="text-3xl md:text-4xl font-bold text-foreground mb-6"
+      >
+        {title}
+      </h2>
+    </div>
+
+    <div
+      data-reveal
+      style="transition-delay: 200ms"
+      class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
+    >
+      {
+        stats.map((stat) => (
+          <div class="text-center p-6 md:p-8 rounded-xl border border-border bg-card/50">
+            <div class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-2">
+              {stat.value}
+            </div>
+            <p class="text-sm text-muted-foreground">{stat.label}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <p
+      data-reveal
+      style="transition-delay: 500ms"
+      class="text-center text-muted-foreground leading-relaxed max-w-2xl mx-auto"
+    >
+      {description}
+    </p>
+  </div>
+</section>

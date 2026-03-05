@@ -1,0 +1,57 @@
+---
+interface Props {
+  quote: string;
+  author: string;
+  role: string;
+  organization: string;
+}
+
+const { quote, author, role, organization } = Astro.props;
+---
+
+<section class="py-20 md:py-28 bg-primary/5 border-y border-border">
+  <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+    <div data-reveal class="flex justify-center mb-8">
+      <div
+        class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="text-primary"
+        >
+          <path
+            d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 2v10c0 2.48 1.53 4 4 6"
+          ></path>
+          <path
+            d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 2v10c0 2.48 1.53 4 4 6"
+          ></path>
+        </svg>
+      </div>
+    </div>
+
+    <blockquote
+      data-reveal
+      style="transition-delay: 100ms"
+      class="mb-8"
+    >
+      <p
+        class="text-xl md:text-2xl lg:text-3xl text-foreground leading-relaxed text-balance"
+      >
+        &ldquo;{quote}&rdquo;
+      </p>
+    </blockquote>
+
+    <div data-reveal style="transition-delay: 200ms">
+      <p class="text-foreground font-semibold">{author}</p>
+      <p class="text-sm text-muted-foreground">{role}, {organization}</p>
+    </div>
+  </div>
+</section>

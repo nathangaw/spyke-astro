@@ -1,0 +1,70 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  points: string[];
+}
+
+const { title, description, points } = Astro.props;
+---
+
+<section class="py-20 md:py-28 bg-background">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+      <div>
+        <p
+          data-reveal
+          class="text-sm text-primary font-medium uppercase tracking-wider mb-4"
+        >
+          The Challenge
+        </p>
+        <h2
+          data-reveal
+          style="transition-delay: 100ms"
+          class="text-3xl md:text-4xl font-bold text-foreground mb-6"
+        >
+          {title}
+        </h2>
+        <p
+          data-reveal
+          style="transition-delay: 200ms"
+          class="text-muted-foreground leading-relaxed"
+        >
+          {description}
+        </p>
+      </div>
+
+      <div
+        data-reveal
+        style="transition-delay: 300ms"
+        class="space-y-4"
+      >
+        {
+          points.map((point) => (
+            <div class="flex items-start gap-4 p-4 rounded-lg border border-border bg-card/50">
+              <div class="w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center shrink-0">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-destructive"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" x2="12" y1="8" y2="12" />
+                  <line x1="12" x2="12.01" y1="16" y2="16" />
+                </svg>
+              </div>
+              <p class="text-foreground">{point}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
